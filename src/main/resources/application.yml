@@ -1,0 +1,16 @@
+spring:
+  main:
+    allow-circular-references: true #Problemas con version a spring 2.6 se restablece el comportamiento de spring 2.5
+  jpa:
+    database: postgresql
+    show-sql: true
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.PostgreSQL94Dialect
+  datasource:
+    url: jdbc:postgresql://localhost:5432/backendPruebaVH
+    username : postgres
+    password: admin
+server:
+  port: 8081
