@@ -66,7 +66,10 @@ public class PersonaController {
 	
 	@GetMapping("/identificacion/{iden}")
 	public ResponseEntity<List<PersonaModel>> bucarIdentificacion(@PathVariable("iden") String iden) throws Exception{
-		List<PersonaModel> lista = service.buscarIdentificacion(iden); 
+		List<PersonaModel> lista = service.buscarIdentificacion(iden);
+		if(lista.toString()=="[]") {
+			return new ResponseEntity<List<PersonaModel>>(lista,HttpStatus.NO_CONTENT);
+		}
 		return new ResponseEntity<List<PersonaModel>>(lista,HttpStatus.OK);
 	}
 	
